@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="report_prof_infos">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="report_prof_infos"/>
+            </t>
+        </t>
+    </template>
+    <template id="report_prof_information">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <h2>Test Print</h2>
+                <t t-esc="doc.image"/>
+                <t t-esc="doc.name"/>
+                <t t-esc="doc.course"/>
+                <t t-esc="doc.age"/>
+                <t t-esc="doc.salary"/>
+                <t t-esc="doc.gender"/>
+                <t t-esc="doc.ladder"/>
+            </t>
+        </t>
+    </template>
+</odoo>

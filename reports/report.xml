@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <report
+        id="report_prof_information"
+        string="Prof Information"
+        model="openacademy.prof"
+        report_type="qweb-pdf"
+        name="module_test.report_prof_information"
+        file="module_test.report_prof_information"
+    />
+</odoo>

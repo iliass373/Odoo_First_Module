@@ -1,0 +1,93 @@
+<odoo>
+    <data>
+<!--  <record id="prof_form" model="ir.ui.view">
+        <field name="name">openacademy.prof.form</field>
+        <field name="model">openacademy.prof</field>
+        <field name="arch" type="xml">
+                <form string="Prof">
+                    <header>
+                        <button name="button_prof" string="Create App" type="object" class="oe hightlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="user_name"/>
+                            </group>
+                            <group>
+                                <field name="password"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="notes"/>
+                        </group>
+                    </sheet>
+                </form>
+        </field>
+    </record>-->
+
+    <record model="ir.ui.view" id="prof_tree">
+      <field name="name">openacademy.prof.tree</field>
+      <field name="model">openacademy.prof</field>
+      <field name="arch" type="xml">
+        <tree string="prof">
+            <field name="name"/>
+            <field name="course"/>
+            <field name="ladder"/>
+            <field name="gender"/>
+        </tree>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="prof_search">
+    <field name="name">openacademy.prof.search</field>
+    <field name="model">openacademy.prof</field>
+    <field name="arch" type="xml">
+        <search string="Prof">
+            <field name="name" filter_domain="['|',('name', 'ilike', self),('age', 'ilike', self)]]" />
+            <field name ='name'/>
+            <field name='age' filter_domain=""/>
+            <separator/>
+            <filter string="Male" name='male' domain="[('gender', '=', 'male')]"/>
+            <filter string="Female" name='female' domain="[('gender', '=', 'female')]"/>
+            <group expand="0" string="Group By">
+                <filter string="ladder" name='ladder' context="{'group_by':'ladder'}" />
+            </group>
+
+        </search>
+    </field>
+    </record>
+    <record model="ir.ui.view" id="prof_kanban">
+    <field name="name">openacademy.prof.kanban</field>
+    <field name='model'>openacademy.prof</field>
+    <field name='arch' type="xml">
+        <kanban>
+            <field name="image"/>
+            <field name="name"/>
+            <field name="course"/>
+            <field name="ladder"/>
+            <templates>
+                <t t-name="kanban-box">
+                    <div class="oe_kanban_global_click_o_kanban">
+<!--                        <t t-if="record.image.raw_value">
+                            <div class="o_kanban_image_fill_left d-md-block"/>
+                        </t>
+                        <t t-else="">
+                            <img class="o_kanban_img" alt="Avatar" t-att-src="/odoov14/odoo-server/extra_addons/module_test/static/img/avatar.png"/>
+                        </t>-->
+                        <div class="oe_kanban_details">
+                            <strong class="o_kanban_record_title"><field name="display_name"/></strong>
+                            <div class="o_kanban_tags_selection"/>
+                            <ul>
+                                <li>name: <field name="name"/></li>
+                                <li>course: <field name="course"/></li>
+                                <li>ladder: <field name="ladder"/></li>
+                            </ul>
+                        </div>
+                    </div>
+                </t>
+            </templates>
+        </kanban>
+    </field>
+    </record>
+
+    </data>
+</odoo>

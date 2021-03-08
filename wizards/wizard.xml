@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="session_prof_wizzard" model="ir.ui.view">
+        <field name="name">create.profwizzard_wizzard</field>
+        <field name="model">create.profwizzard</field>
+        <field name="arch" type="xml">
+            <form string="Create Prof">
+                <group>
+                    <field name="sess_id"/>
+                    <field name="notes"/>
+                </group>
+                <footer>
+                    <button name="create_prof_wizzard_button" string="Create" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+
+                </footer>
+            </form>
+
+        </field>
+    </record>
+
+    <record id="create_prof_wizard" model="ir.actions.act_window">
+      <field name="name">Create Prof</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">create.profwizzard</field>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="session_prof_wizzard"/>
+      <field name="target">new</field>
+
+    </record>
+</odoo>

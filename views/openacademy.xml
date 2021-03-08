@@ -1,0 +1,56 @@
+<odoo>
+  <data>
+
+    <record model="ir.actions.act_window" id="course_list_action">
+        <field name="name">Courses</field>
+        <field name="res_model">openacademy.course</field>
+        <field name="view_mode">pivot,kanban,search,tree,form</field>
+    </record>
+      <record model="ir.actions.act_window" id="session_list_action">
+        <field name="name">Sessions</field>
+        <field name="res_model">openacademy.sessions</field>
+        <field name="view_mode">pivot,kanban,search,tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="student_list_action">
+        <field name="name">Student</field>
+        <field name="res_model">openacademy.student</field>
+        <field name="view_mode">pivot,kanban,search,tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="prof_list_action">
+        <field name="name">Professeur</field>
+        <field name="res_model">openacademy.prof</field>
+        <field name="view_mode">pivot,kanban,search,tree,form</field>
+    </record>
+
+
+    <!-- top level menu: no parent -->
+    <menuitem id="menu_root" name="OpenAcademy"/>
+    <!-- A first level in the left side menu is needed
+         before using action= attribute -->
+    <menuitem id="openacademy_menu" name="School"
+              parent="menu_root" sequence="0"/>
+
+    <menuitem id="openacademy_Administration" name="Administration"
+              parent="menu_root" sequence="2"/>
+      <menuitem id="openacademy_session" name="Sessions"
+              parent="menu_root" sequence="1" action="session_list_action"/>
+
+      <!-- the following menuitem should appear *after*
+         its parent openacademy_menu and *after* its
+         action course_list_action -->
+    <menuitem id="courses_menu" name="Courses" parent="openacademy_menu"
+              action="course_list_action"/>
+
+    <menuitem id="student_menu" name="Students" parent="openacademy_menu"
+              action="student_list_action"/>
+
+    <menuitem id="openacademy_Prof" name="Professeur"
+              parent="openacademy_Administration" action="prof_list_action"/>
+    <!-- Full id location:
+         action="openacademy.course_list_action"
+         It is not required when it is the same module -->
+
+  </data>
+</odoo>

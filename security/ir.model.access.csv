@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+course_manager,course manager,model_openacademy_course,,1,1,1,1
+course_student,course student,model_openacademy_student,,1,1,1,1
+departement_prof,departement prof,model_openacademy_prof,,1,1,1,1
+departement_SESSION,session prof,model_openacademy_sessions,,1,1,1,1
+wizzard_prof,wizzard prof,model_create_profwizzard,,1,1,1,1

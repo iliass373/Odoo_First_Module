@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+
+        <record id="student_pivot" model="ir.ui.view">
+            <field name="name">openacademy.student.pivot</field>
+            <field name="model">openacademy.student</field>
+            <field name="arch" type="xml">
+                <graph string="Appointment">
+                    <field name="id"/>
+                    <field name='age'/>
+                </graph>
+            </field>
+        </record>
+        <record id="student_graph" model="ir.ui.view">
+        <field name="name">openacademy.student.graph</field>
+        <field name="model">openacademy.student</field>
+        <field name="arch" type="xml">
+        <pivot string="Appointment">
+            <field name="name"/>
+            <field name='age'/>
+            <field name='gender'/>
+        </pivot>
+        </field>
+        </record>
+
+
+
+    </data>
+</odoo>

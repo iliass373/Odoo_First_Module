@@ -1,0 +1,54 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="session_tree">
+      <field name="name">Student Tree</field>
+      <field name="model">openacademy.sessions</field>
+      <field name="arch" type="xml">
+        <tree string="Sess">
+            <field name="user_name"/>
+            <field name="password"/>
+            <field name="notes"/>
+        </tree>
+      </field>
+    </record>
+      <record model="ir.ui.view" id="sessions_form">
+      <field name="name">openacademy.sessions.form</field>
+      <field name="model">openacademy.sessions</field>
+      <field name="arch" type="xml">
+        <form string="Sess">
+            <header>
+                <button name="%(module_test.create_prof_wizard)d" string="Add new prof" type="action" class="oe_highlight"/>
+            </header>
+            <sheet>
+                <group>
+                    <group>
+                        <field name="user_name"/>
+                    </group>
+                    <group>
+                        <field name="password"/>
+                    </group>
+                </group>
+                <group>
+                    <field name="prof"/>
+                </group>
+                <group>
+                    <field name="notes"/>
+                </group>
+            </sheet>
+        </form>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="sessions_search">
+    <field name="name">Sessions search</field>
+    <field name="model">openacademy.sessions</field>
+    <field name="arch" type="xml">
+        <search string="Sess">
+            <field name="user_name" filter_domain="['|',('user_name', 'ilike', self),('password', 'ilike', self)]" />
+            <field name='user_name'/>
+            <field name='password'/>
+        </search>
+    </field>
+    </record>
+
+  </data>
+</odoo>
