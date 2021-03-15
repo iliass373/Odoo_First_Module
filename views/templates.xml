@@ -16,7 +16,9 @@
                         <t t-foreach="sessions" t-as="session">
                             <tr>
                                 <td>
-                                    <t t-esc="session.user_name"/>
+                                    <button >
+                                        <t t-esc="session.user_name" t-value="'/web#model=openacademy.sessions&amp;id=%s&amp;view_type=form' % (session_id)'" />
+                                    </button>
                                 </td>
                             </tr>
 

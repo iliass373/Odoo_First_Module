@@ -23,6 +23,7 @@ class Course(models.Model):
 
     name = fields.Char(string='Name', required=True, help='Name of the Course', translate=True)
     description = fields.Text(translate=True)
+    responsible_id = fields.Many2one('res.users',ondelete='set null', string="Responsible", index=True)
 
 
 class Student(models.Model):
@@ -64,7 +65,20 @@ class Sessions(models.Model):
     _description = 'Sessions Helpdesk'
     _rec_name = 'user_name'
 
+    def action_en_cours(self):
+        for rec in self:
+            rec.state = 'session en cours'
+
+    def action_finished(self):
+        for rec in self:
+            rec.state = 'session finished'
+
     user_name = fields.Char(string='le nom de la session', required=True)
     password = fields.Char(string='password', required=True)
     notes = fields.Char(string='Notes', help='cite what you have about the session')
     prof = fields.Many2many('openacademy.prof',  string='Prof Name', required=True)
+    state = fields.Selection([
+        ('session started', 'Session Started'),
+        ('session en cours', 'Session En Cours'),
+        ('session finished', 'Session Finished')
+    ], string='Status', index=True, readonly=True, default='session started')

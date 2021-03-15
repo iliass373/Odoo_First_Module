@@ -2,10 +2,18 @@
 <odoo>
     <report
         id="report_prof_information"
-        string="Prof Information"
+        string="PDF"
         model="openacademy.prof"
         report_type="qweb-pdf"
         name="module_test.report_prof_information"
         file="module_test.report_prof_information"
+    />
+    <report
+        id="report_prof_information_xlsx"
+        string="XLSX"
+        model="openacademy.prof"
+        report_type="xlsx"
+        name="module_test.report_prof_information_xlsx"
+        file="module_test.report_prof_information_xlsx"
     />
 </odoo>

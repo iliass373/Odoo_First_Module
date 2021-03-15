@@ -25,13 +25,24 @@ class ModuleTest(http.Controller):
 
 class Controller(http.Controller):
 
-    @http.route('/my/sessions/', type='http', auth='user', website=True)
+    @http.route(['/my/sessions/'], type='http', auth='user', website=True)
     def check_sessions(self):
         sessions = request.env['openacademy.sessions'].sudo().search([])
         professeurs = request.env['openacademy.prof'].sudo().search([])
         student = request.env['openacademy.student'].sudo().search([])
+        #tickets_count = len(request.env['helpdesk.ticket'].search(domain))
         return request.render('module_test.session_template', {   # Nom du module. nom template
             'sessions': sessions,
             'professeurs': professeurs,
             'students': student,
         })
+
+    @http.route(["/my/sessions/<int:session_id>"], type='http', auth="public", website=True)
+    def show_sessions(self, session_id=None, access_token=None, **kw):
+
+        print(request.env["openacademy.sessions"].browse(request.env.uid).id)
+        sessions = request.env['openacademy.sessions'].sudo().search([])
+        professeurs = request.env['openacademy.prof'].sudo().search([])
+        student = request.env['openacademy.student'].sudo().search([])
+        values = request.env['openacademy.sessions']
+        return request.render('module_test.tickets_followup',values)

@@ -25,6 +25,7 @@
     </record>
 
 
+
     <!-- top level menu: no parent -->
     <menuitem id="menu_root" name="OpenAcademy"/>
     <!-- A first level in the left side menu is needed
@@ -34,12 +35,10 @@
 
     <menuitem id="openacademy_Administration" name="Administration"
               parent="menu_root" sequence="2"/>
-      <menuitem id="openacademy_session" name="Sessions"
+    <menuitem id="openacademy_session" name="Sessions"
               parent="menu_root" sequence="1" action="session_list_action"/>
 
-      <!-- the following menuitem should appear *after*
-         its parent openacademy_menu and *after* its
-         action course_list_action -->
+
     <menuitem id="courses_menu" name="Courses" parent="openacademy_menu"
               action="course_list_action"/>
 

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="act_courses" model="ir.actions.act_window">
+        <field name="name">Courses</field>
+        <field name="res_model">openacademy.course</field>
+        <field name="view_mode">pivot</field>
+    </record>
+    <record id="act_Student" model="ir.actions.act_window">
+        <field name="name">Student</field>
+        <field name="res_model">openacademy.student</field>
+        <field name="view_mode">graph</field>
+    </record>
+    <record id="act_sessions" model="ir.actions.act_window">
+        <field name="name">Sessions</field>
+        <field name="res_model">openacademy.sessions</field>
+        <field name="view_mode">kanban</field>
+    </record>
+    <record id="act_professeur" model="ir.actions.act_window">
+        <field name="name">Professeur</field>
+        <field name="res_model">openacademy.prof</field>
+        <field name="view_mode">graph</field>
+    </record>
+
+    <record id="dahsboard_form_view" model="ir.ui.view">
+        <field name="name">Dashboard Form</field>
+        <field name="model">board.board</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Dashboard">
+                <board style="1-2">
+                    <column>
+                        <action string="Courses" name="%(module_test.act_courses)d"/>
+                        <action string="Sessions" name="%(module_test.act_sessions)d"/>
+                    </column>
+                    <column>
+                        <action string="Professeur" name="%(module_test.act_professeur)d"/>
+                        <action string="Student" name="%(module_test.act_Student)d"/>
+                    </column>
+                </board>
+            </form>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="openacademy_dashboard_action">
+        <field name="name">Dashboard</field>
+        <field name="res_model">board.board</field>
+        <field name="view_mode">form</field>
+<!--        <field name="usage">menu</field>-->
+        <field name="view_id" ref="dahsboard_form_view"/>
+    </record>
+
+
+</odoo>

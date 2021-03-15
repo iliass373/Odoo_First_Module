@@ -18,6 +18,9 @@
         <form string="Sess">
             <header>
                 <button name="%(module_test.create_prof_wizard)d" string="Add new prof" type="action" class="oe_highlight"/>
+                <button name='action_en_cours' type="object" string="Confirm" states="session started" class="oe_highlight"/>
+                <button name='action_finished' type="object" string="Finished" states="session en cours" class="oe_highlight"/>
+                <field name="state" widget="statusbar"/>
             </header>
             <sheet>
                 <group>

@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','board','portal'],
 
     # always loaded
     'data': [
@@ -32,8 +32,11 @@
         'views/student.xml',
         'views/sessions.xml',
         'views/templates.xml',
+        'views/dashboard.xml',
+        'views/Dash2.xml',
         'reports/report.xml',
         'reports/prof_information.xml',
+        'assets.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
